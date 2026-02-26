@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabGenius - Inscription</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <span class="logo-icon">🧬</span>
+                    <span class="logo-text">LabGenius</span>
+                </div>
+                <h1>Créer un compte</h1>
+                <p>Rejoignez la communauté LabGenius</p>
+            </div>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>👤 Prénom</label>
+                        <input type="text" id="registerFirstName" placeholder="Jean" required>
+                    </div>
+                    <div class="form-group half">
+                        <label>👤 Nom</label>
+                        <input type="text" id="registerLastName" placeholder="Dupont" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>📧 Email</label>
+                    <input type="email" id="registerEmail" placeholder="jean.dupont@labgenius.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>🔬 Profession</label>
+                    <select id="registerRole" required>
+                        <option value="">Sélectionnez votre profil</option>
+                        <option value="etudiant">Étudiant</option>
+                        <option value="chercheur">Chercheur</option>
+                        <option value="professeur">Professeur</option>
+                        <option value="investisseur">Investisseur</option>
+                        <option value="autre">Autre professionnel</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>🔒 Mot de passe</label>
+                        <div class="password-input">
+                            <input type="password" id="registerPassword" placeholder="••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
+                        </div>
+                    </div>
+                    <div class="form-group half">
+                        <label>✓ Confirmation</label>
+                        <div class="password-input">
+                            <input type="password" id="registerConfirm" placeholder="••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('registerConfirm')">👁️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🏛️ Institution (optionnel)</label>
+                    <input type="text" id="registerInstitution" placeholder="Institut Pasteur">
+                </div>
+
+                <div class="form-group terms">
+                    <label class="checkbox">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <span>J'accepte les <a href="#">conditions d'utilisation</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span>✨</span> Créer mon compte
+                </button>
+
+                <div class="auth-footer">
+                    <p>Déjà inscrit ? 
+                        <a href="login.html">Se connecter</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <div class="auth-features">
+            <div class="features-content">
+                <h2>Pourquoi nous rejoindre ?</h2>
+                <ul class="features-list">
+                    <li>✅ Accès à tous les outils</li>
+                    <li>✅ Sauvegarde de vos projets</li>
+                    <li>✅ Bibliothèque personnelle</li>
+                    <li>✅ Statistiques détaillées</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

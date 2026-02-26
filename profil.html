@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabGenius - Mon Profil</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="profil.css">
+    <link href="Logo.png" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo-container">
+                <span class="logo-icon">🧬</span>
+                <span class="logo-text">LabGenius</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="sequenceur.html">Séquenceur</a></li>
+                <li><a href="synthèse.css">Synthèse</a></li>
+                <li><a href="bibliothèque.css">Bibliothèque</a></li>
+                <li><a href="profil.html" class="active">Profil</a></li>
+                <li><a href="login.html" class="active"></a></li>
+            </ul>
+            <div class="user-menu">
+                <span class="user-name" id="headerUserName">Dr. Jean Dupont</span>
+                <button onclick="logout()" class="btn-logout" title="Déconnexion">🚪</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profil-container">
+        <div class="profile-header">
+            <div class="profile-cover">
+                <div class="profile-avatar">
+                    <div class="avatar-circle" id="userInitials">JD</div>
+                    <button class="avatar-edit" onclick="triggerAvatarUpload()">📷</button>
+                    <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-title">
+                    <h1 id="profileName">Dr. Jean Dupont</h1>
+                    <p id="profileRole">Chercheur en génétique moléculaire</p>
+                    <div class="profile-badges">
+                        <span class="badge badge-premium">🔬 Compte Premium</span>
+                        <span class="badge badge-date">Membre depuis 2024</span>
+                    </div>
+                </div>
+                <button class="btn-edit-profile" onclick="toggleEditMode()">
+                    <span>✏️</span> Modifier le profil
+                </button>
+            </div>
+        </div>
+
+        <div id="viewMode" class="profile-content">
+            <section class="profile-section">
+                <h2>📋 Informations personnelles</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <label>Nom complet</label>
+                        <p id="viewName">Dr. Jean Dupont</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Email</label>
+                        <p id="viewEmail">jean.dupont@labgenius.com</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Téléphone</label>
+                        <p id="viewPhone">+33 6 12 34 56 78</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Institution</label>
+                        <p id="viewInstitution">Institut Pasteur</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Département</label>
+                        <p id="viewDepartment">Génomique et Biologie</p>
+                    </div>
+                    <div class="info-card">
+                        <label>Spécialité</label>
+                        <p id="viewSpecialty">Biologie moléculaire</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h2>📊 Statistiques personnelles</h2>
+                <div class="stats-personal-grid">
+                    <div class="stat-personal-card">
+                        <div class="stat-icon">🧬</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="statProjects">24</span>
+                            <span class="stat-label">Projets créés</span>
+                        </div>
+                    </div>
+                    <div class="stat-personal-card">
+                        <div class="stat-icon">⚗️</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="statSyntheses">156</span>
+                            <span class="stat-label">Synthèses</span>
+                        </div>
+                    </div>
+                    <div class="stat-personal-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="statFavorites">12</span>
+                            <span class="stat-label">Séquences favorites</span>
+                        </div>
+                    </div>
+                    <div class="stat-personal-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="statSuccess">87%</span>
+                            <span class="stat-label">Taux de réussite</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h2>⏱️ Activité récente</h2>
+                <div class="activity-timeline" id="userActivity">
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h2>⚙️ Préférences</h2>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <span class="pref-label">Thème sombre</span>
+                        <label class="switch">
+                            <input type="checkbox" id="darkTheme" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <span class="pref-label">Notifications par email</span>
+                        <label class="switch">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <span class="pref-label">Notifications desktop</span>
+                        <label class="switch">
+                            <input type="checkbox" id="desktopNotifications">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <span class="pref-label">Sauvegarde automatique</span>
+                        <label class="switch">
+                            <input type="checkbox" id="autoSave" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h2>🔒 Sécurité</h2>
+                <div class="security-actions">
+                    <button class="btn btn-secondary" onclick="showChangePassword()">
+                        <span>🔑</span> Changer le mot de passe
+                    </button>
+                    <button class="btn btn-secondary" onclick="showTwoFactor()">
+                        <span>📱</span> Double authentification
+                    </button>
+                    <button class="btn btn-secondary" onclick="showSessions()">
+                        <span>💻</span> Appareils connectés
+                    </button>
+                    <button class="btn btn-danger" onclick="showDeleteAccount()">
+                        <span>⚠️</span> Supprimer le compte
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <div id="editMode" class="profile-content" style="display: none;">
+            <section class="profile-section">
+                <h2>✏️ Modifier mes informations</h2>
+                <form id="editProfileForm" class="edit-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editName">Nom complet</label>
+                            <input type="text" id="editName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email</label>
+                            <input type="email" id="editEmail" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editPhone">Téléphone</label>
+                            <input type="tel" id="editPhone">
+                        </div>
+                        <div class="form-group">
+                            <label for="editInstitution">Institution</label>
+                            <input type="text" id="editInstitution">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editDepartment">Département</label>
+                            <input type="text" id="editDepartment">
+                        </div>
+                        <div class="form-group">
+                            <label for="editSpecialty">Spécialité</label>
+                            <input type="text" id="editSpecialty">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editBio">Biographie</label>
+                            <textarea id="editBio" rows="3" placeholder="Parlez de votre parcours..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="toggleEditMode()">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div id="passwordModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🔑 Changer le mot de passe</h2>
+                    <button class="modal-close" onclick="closePasswordModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="passwordForm">
+                        <div class="form-group">
+                            <label>Mot de passe actuel</label>
+                            <div class="password-input">
+                                <input type="password" id="currentPassword" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword('currentPassword')">👁️</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nouveau mot de passe</label>
+                            <div class="password-input">
+                                <input type="password" id="newPassword" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword('newPassword')">👁️</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmer le mot de passe</label>
+                            <div class="password-input">
+                                <input type="password" id="confirmPassword" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="closePasswordModal()">Annuler</button>
+                    <button class="btn btn-primary" onclick="changePassword()">Mettre à jour</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="twoFactorModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>📱 Double authentification</h2>
+                    <button class="modal-close" onclick="closeTwoFactorModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="two-factor-setup">
+                        <div class="qr-code">
+                            <div class="qr-placeholder">📱</div>
+                        </div>
+                        <p>Scannez ce code avec votre application d'authentification</p>
+                        <div class="setup-key">
+                            <code>LABG-ENI-US-1234-5678</code>
+                            <button onclick="copyKey()">📋</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="closeTwoFactorModal()">Fermer</button>
+                    <button class="btn btn-primary">Activer</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="storage.js"></script>
+    <script src="utils.js"></script>
+    <script src="profil.js"></script>
+</body>
+</html>

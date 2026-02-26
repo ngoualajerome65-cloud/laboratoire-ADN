@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabGenius - Connexion</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <span class="logo-icon">🧬</span>
+                    <span class="logo-text">LabGenius</span>
+                </div>
+                <h1>Connexion</h1>
+                <p>Accédez à votre laboratoire virtuel</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label>📧 Email</label>
+                    <input type="email" id="loginEmail" placeholder="exemple@labgenius.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>🔒 Mot de passe</label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span>🔬</span> Se connecter
+                </button>
+
+                <div class="auth-footer">
+                    <p>Pas encore de compte ? 
+                        <a href="register.html">Créer un compte</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <div class="auth-features">
+            <div class="features-content">
+                <h2>🔬 Plateforme de synthèse génétique</h2>
+                <ul class="features-list">
+                    <li>🧬 Éditeur de génome</li>
+                    <li>⚗️ Machine de synthèse</li>
+                    <li>📚 Bibliothèque génomique</li>
+                    <li>📊 Dashboard intelligent</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

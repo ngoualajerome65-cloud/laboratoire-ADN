@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabGenius - Synthèse</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="synthèse.css">
+    <link href="Logo.png" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo-container">
+                <span class="logo-icon">🧬</span>
+                <span class="logo-text">LabGenius</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="sequenceur.html">Séquenceur</a></li>
+                <li><a href="synthèse.html" class="active">Synthèse</a></li>
+                <li><a href="bibliothèque.html">Bibliothèque</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="synthese">
+        <!-- En-tête -->
+        <div class="synthesis-header">
+            <h1>⚗️ Machine de synthèse</h1>
+            <div class="synthesis-stats" id="synthesisStats">
+                <span class="stat-badge">⚡ 85% taux moyen</span>
+            </div>
+        </div>
+
+        <!-- Panneau d'information -->
+        <div class="info-panel">
+            <div class="info-icon">🔬</div>
+            <div class="info-text">
+                <strong>Mode simulation</strong>
+                <p>La synthèse est simulée en fonction de la complexité de la séquence.</p>
+            </div>
+        </div>
+
+        <!-- Section de saisie -->
+        <section class="input-section card">
+            <h2>📝 Séquence à synthétiser</h2>
+            
+            <div class="input-group">
+                <textarea 
+                    id="synthesisInput" 
+                    rows="3" 
+                    placeholder="Entrez votre séquence ADN (A, T, G, C)"
+                >ATGCGTAAATGC</textarea>
+                
+                <div class="stats-preview" id="statsPreview">
+                    <div class="stat-row">
+                        <span>Longueur:</span>
+                        <span id="previewLength">12 bases</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>GC Content:</span>
+                        <span id="previewGC">50%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Taux estimé:</span>
+                        <span id="previewRate">76%</span>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="validateBtn" class="btn btn-secondary">
+                        <span>✓</span> Valider
+                    </button>
+                    <button id="loadFromEditorBtn" class="btn btn-secondary">
+                        <span>📋</span> De l'éditeur
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <span>🗑️</span> Effacer
+                    </button>
+                </div>
+                
+                <div id="synthesisError" class="error-message"></div>
+            </div>
+
+            <!-- Bouton principal -->
+            <div class="synthesis-action">
+                <button id="startSynthesisBtn" class="btn btn-primary btn-large">
+                    <span>⚗️</span> Démarrer la synthèse
+                </button>
+            </div>
+        </section>
+
+        <!-- Section de progression -->
+        <section id="progressSection" class="progress-section card" style="display: none;">
+            <h2>⏳ Synthèse en cours</h2>
+            
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+            </div>
+            
+            <div id="progressStatus" class="progress-status">
+                0%
+                <small>Initialisation...</small>
+            </div>
+        </section>
+
+        <!-- Section de résultat -->
+        <section id="resultSection" class="result-section card" style="display: none;">
+            <h2>📋 Rapport de synthèse</h2>
+            <div id="synthesisReport" class="report-content"></div>
+            
+            <div class="post-actions">
+                <button id="newSynthesisBtn" class="btn btn-secondary">
+                    <span>🔄</span> Nouvelle synthèse
+                </button>
+                <button id="saveToLibraryBtn" class="btn btn-primary" style="display: none;">
+                    <span>📚</span> Sauvegarder
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="storage.js"></script>
+    <script src="utils.js"></script>
+    <script src="synthèse.js"></script>
+</body>
+</html>

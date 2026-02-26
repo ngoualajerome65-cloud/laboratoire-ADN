@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabGenius - Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="Logo.png" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo-container">
+                <span class="logo-icon">🧬</span>
+                <span class="logo-text">LabGenius</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="sequenceur.html">Séquenceur</a></li>
+                <li><a href="synthese.html">Synthèse</a></li>
+                <li><a href="bibliotheque.html">Bibliothèque</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <h1>🔬 Bienvenue dans votre laboratoire virtuel</h1>
+                <p>Simulateur de synthèse génétique - Édition & manipulation ADN</p>
+            </div>
+            <div class="quick-actions">
+                <a href="sequenceur.html" class="btn btn-primary">
+                    <span>➕</span> Nouvelle séquence
+                </a>
+                <a href="bibliotheque.html" class="btn btn-secondary">
+                    <span>📚</span> Bibliothèque
+                </a>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-details">
+                    <span class="stat-value" id="projectCount">0</span>
+                    <span class="stat-label">Projets</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">🧬</div>
+                <div class="stat-details">
+                    <span class="stat-value" id="sequenceCount">0</span>
+                    <span class="stat-label">Séquences</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">⚗️</div>
+                <div class="stat-details">
+                    <span class="stat-value" id="synthesisCount">0</span>
+                    <span class="stat-label">Synthèses</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-details">
+                    <span class="stat-value" id="favoritesCount">0</span>
+                    <span class="stat-label">Favoris</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-section">
+            <div class="section-header">
+                <h2>📋 Séquences récentes</h2>
+                <a href="bibliotheque.html" class="btn-small">Voir tout</a>
+            </div>
+            <div id="recentList" class="sequence-list"></div>
+        </section>
+
+        <section class="activity-section">
+            <h2>⏱️ Activité récente</h2>
+            <div id="activityList" class="activity-list"></div>
+        </section>
+    </main>
+
+      <div class="user-menu" id="userMenu">
+                <span class="user-name" id="headerUserName">Chargement...</span>
+                <button onclick="logout()" class="btn-logout">🚪</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <div class="welcome-section">
+            <div class="welcome-content">
+                <h1>Bienvenue, <span id="welcomeName">...</span> !</h1>
+                <p>Laboratoire virtuel de synthèse génétique</p>
+            </div>
+        </div>
+
+        <section class="stats-grid" id="statsGrid">
+       
+        </section>
+
+        <section class="recent-section">
+            <h2>📋 Activité récente</h2>
+            <div id="recentList" class="recent-list"></div>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="storage.js"></script>
+    <script src="utils.js"></script>
+    <script src="dashboarb.js"></script>
+</body>
+</html>

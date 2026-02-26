@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabGenius - Bibliothèque</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="bibliothèque.css">
+    <link href="Logo.png" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo-container">
+                <span class="logo-icon">🧬</span>
+                <span class="logo-text">LabGenius</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="sequenceur.html">Séquenceur</a></li>
+                <li><a href="synthese.html">Synthèse</a></li>
+                <li><a href="bibliotheque.html" class="active">Bibliothèque</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="bibliotheque">
+        <!-- En-tête avec boutons -->
+        <div class="library-header">
+            <h1>📚 Bibliothèque Génomique</h1>
+            <div class="header-actions">
+                <button id="importSequenceBtn" class="btn btn-secondary">
+                    <span>📤</span> Importer
+                </button>
+                <button id="addSequenceBtn" class="btn btn-primary">
+                    <span>➕</span> Nouvelle séquence
+                </button>
+            </div>
+        </div>
+
+        <!-- Statistiques -->
+        <div class="library-stats">
+            <div class="stat-chip">
+                <span class="chip-value" id="totalSequences">0</span>
+                <span>séquences</span>
+            </div>
+            <div class="stat-chip">
+                <span class="chip-value" id="totalFavorites">0</span>
+                <span>favoris</span>
+            </div>
+            <div class="stat-chip">
+                <span class="chip-value" id="totalBases">0</span>
+                <span>bases</span>
+            </div>
+        </div>
+
+        <!-- Section Favoris -->
+        <section class="favorites-section">
+            <h2>⭐ Mes favoris</h2>
+            <div id="favoritesList" class="sequences-grid">
+                <!-- Injecté par JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL (caché par défaut) -->
+    <div id="sequenceModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>➕ Nouvelle séquence</h2>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Nom de la séquence</label>
+                    <input type="text" id="newSeqName" placeholder="Ex: Gène de l'insuline">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="newSeqDesc" rows="2" placeholder="Description optionnelle..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Séquence ADN <span class="label-hint">(A, T, G, C uniquement)</span></label>
+                    <textarea id="newSeqValue" rows="4" placeholder="ATGCGTAA..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Catégorie</label>
+                    <select id="newSeqCategory">
+                        <option value="human">🧬 Humain</option>
+                        <option value="bacterial">🦠 Bactérien</option>
+                        <option value="viral">🦠 Viral</option>
+                        <option value="other">🔬 Autre</option>
+                    </select>
+                </div>
+                <div id="modalError" class="error-message"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelModalBtn">Annuler</button>
+                <button class="btn btn-primary" id="saveSeqBtn">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="storage.js"></script>
+    <script src="utils.js"></script>
+    <script src="bibliothèque.js"></script>
+</body>
+</html>
